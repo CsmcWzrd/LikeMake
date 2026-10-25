@@ -1,0 +1,16 @@
+/LikeMake
+/LikeMake.exe
+/LikeMakefileBuilder
+/LikeMakefileBuilder.exe
+/src/*.o
+/src/*.obj
+/build/
+/build-output/
+/.likemake/
+*.user
+*.suo
+*.VC.db
+*.VC.VC.opendb
+.vs/
+*.pyc
+__pycache__/

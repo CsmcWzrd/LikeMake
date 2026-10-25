@@ -1,0 +1,23 @@
+Defaults:
+COMPILER gcc
+LINKER gcc
+
+MainConfig:
+-O2
+-Wall
+
+OutputDir:
+build-output
+
+DependsOn:
+hello.c
+
+Config:
+MainConfig
+
+Execution:build
+COMPILER -c hello.c -o hello.o
+LINKER hello.o -o hello
+
+clean:
+@clean

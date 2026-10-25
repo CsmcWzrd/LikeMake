@@ -1,0 +1,35 @@
+# Demonstrates dependencies across two execution sections.
+Defaults:
+COMPILER gcc
+LINKER gcc
+
+MainConfig:
+-Wall
+-O2
+-I.
+
+OutputDir:
+output
+
+DependsOn:
+file0.c
+
+Config:
+MainConfig
+
+Execution:compile-helper
+~# COMPILER -c file0.c -o file0.o
+
+DependsOn:
+main.c
+file0.o
+
+Config:
+MainConfig
+
+Execution2:
+COMPILER -c main.c -o main.o
+LINKER main.o file0.o -o sample
+
+clean-all:
+@clean

@@ -1,0 +1,24 @@
+# Bootstrap with make, cmake, autotools or Visual Studio first.
+# Then LikeMake can build its own C sources.
+Defaults:
+COMPILER cc
+LINKER cc
+
+OutputDir:
+build-output
+
+DependsOn:
+src/common.c
+src/likemake.c
+src/builder.c
+include/lm_common.h
+
+Execution:build
+COMPILER -std=c11 -Iinclude -c src/common.c -o common.o
+COMPILER -std=c11 -Iinclude -c src/likemake.c -o likemake.o
+COMPILER -std=c11 -Iinclude -c src/builder.c -o builder.o
+LINKER likemake.o common.o -o LikeMake
+LINKER builder.o common.o -o LikeMakefileBuilder
+
+Execution:clean
+@clean

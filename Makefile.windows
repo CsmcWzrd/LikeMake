@@ -1,0 +1,5 @@
+# For MinGW-w64/MSYS2 with GNU Make. Use the VS2022 solution for MSVC.
+CC = gcc
+CFLAGS = -O2 -std=c11 -Wall -Wextra -Wpedantic
+EXEEXT = .exe
+include Makefile
